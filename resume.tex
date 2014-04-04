@@ -1,0 +1,253 @@
+% David Tyler's Resume
+% Created: 03/03/2014
+% Last Modified:  03/03/2014
+
+\documentclass[10pt,oneside]{article}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+
+\pagestyle{empty}
+\geometry{letterpaper,tmargin=0.5in,bmargin=0.5in,lmargin=0.5in,rmargin=0.5in,headheight=0in,headsep=0in,footskip=.3in}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+% Name and contact information
+\newcommand{\name}{David Tyler}
+\newcommand{\addr}{41 Mason St}
+\newcommand{\addrs}{Somerville, MA 02144}
+\newcommand{\phone}{978-212-9199}
+\newcommand{\email}{dtyler59@gmail.com}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New commands and environments
+
+% This defines how the name looks
+\newcommand{\bigname}[1]{
+	\begin{center}\fontfamily{phv}\selectfont\huge\scshape#1\end{center}
+}
+
+% A ressection is a main section (<H1>Section</H1>)
+\newenvironment{ressection}[1]{
+	\vspace{4pt}
+	{\fontfamily{phv}\selectfont\Large#1}
+	\begin{itemize}
+	\vspace{3pt}
+}{
+	\end{itemize}
+}
+
+%same as ressection but without bullets
+\newenvironment{ressectionplain}[1]{
+	\vspace{4pt}
+	{\fontfamily{phv}\selectfont\Large#1}\\
+}
+
+
+% A resitem is a simple list element in a ressection (first level)
+\newcommand{\resitem}[1]{
+	\vspace{-4pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+}
+
+% A ressubitem is a simple list element in anything but a ressection (second level)
+\newcommand{\ressubitem}[1]{
+	\vspace{-1pt}
+	\item \begin{flushleft} #1 \end{flushleft}
+}
+
+% A resbigitem is a complex list element for stuff like jobs and education:
+%  Arg 1: Name of company or university
+%  Arg 2: Location
+%  Arg 3: Title and/or date range
+\newcommand{\resbigitem}[3]{
+	\vspace{-5pt}
+	\item
+	\textbf{#1}---#2 \\
+	\textit{#3}
+}
+%Places GPA on same line as degree
+\newcommand{\resbigitemdegrees}[4]{
+	\vspace{-5pt}
+	\item
+	\textbf{#1}---#2 \\
+	\textit{#3} #4
+}
+
+%Same as resbigitem but without the hyphenation
+\newcommand{\ressmallitem}[3]{
+	\vspace{-5pt}
+	\item
+	\textbf{#1} {#2}\\
+	\textit{#3}
+}
+
+% This is a list that comes with a resbigitem
+\newenvironment{ressubsec}[3]{
+	\resbigitem{#1}{#2}{#3}
+	\vspace{-2pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+%Same as ressubsec but without bullets
+%\newenvironment{ressubsecplain}[3]{  
+%	\resbigitem{#1}{#2}{#3}
+%	\vspace{-2pt} \\
+%}
+%Same as ressubsec but without hyphenation
+\newenvironment{ressubsecsmall}[3]{
+	\ressmallitem{#1}{#2}{#3}
+	\vspace{-2pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+%Same as ressubsec but another set of fields
+\newenvironment{ressubsecdegrees}[4]{
+	\resbigitemdegrees{#1}{#2}{#3}{#4}
+	\vspace{-2pt}
+%	\begin{itemize}
+}%{
+%
+%	\end{itemize}
+%}
+
+% This is a simple sublist
+\newenvironment{reslist}[1]{
+	\resitem{\textbf{#1}}
+	\vspace{-5pt}
+	\begin{itemize}
+}{
+	\end{itemize}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the actual document:
+
+\begin{document}
+
+\fontfamily{ppl} \selectfont
+
+% Name with horizontal rule
+\bigname{\name}
+
+
+\vspace{-1pt} {\small \addr \hfill \phone}\\
+\vspace{-1pt}{\small \addrs \hfill \email}
+
+\vspace{-8pt} \rule{\textwidth}{1pt}
+
+
+\vspace{8 pt}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressectionplain}{Summary}
+
+Inquisitive Computer Engineer with industry design and test experience in both the hardware and software, strong collaboration experience, and excellent communications skills. Graduating this fall and currently looking for a summer internship.\newline
+
+
+%Independently motivated Electrical Engineer with a background in theory, computation, and application and strong multitasking, planning, and communication skills.\newline
+
+%ENGINEERING:
+%Motivated Electrical Engineer with experience in computation and fabrication and strong\\ multitasking, planning, and communication skills seeking a career in the Semiconductor Industry.\\ %actively involved in engineering and outreach organizations%
+
+%EDUCATION RESEARCH CHILDREN
+%Responsible and motivated Electrical Engineer with strong communication and research skills with experience designing and teaching courses in Robotics, Computer Technology, and Engineering for elementary through college students.\newline
+
+%ENGINEERING EDUCATION ADMIN
+%Responsible and motivated Electrical Engineer with strong communication and planning skills and industry and academia experience, seeking to start a career in engineering education.
+\end{ressectionplain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ressection}{Industry Experience}
+
+\begin{ressubsec}{Clark Solutions}{Hudson, MA \hfill 2014-Present}
+{Junior Engineer}
+\ressubitem{Designed, wrote, tested, and shipped a GUI application to allow customers to configure an ultrasonic flowmeter over a MODBUS RTU network from their PC.}
+\ressubitem{Ported entire company's codebase from HI-TECH compiler to XC8 compiler.}
+\ressubitem{Debugged ''spaghetti'' code written for a PIC16F886 and refactored it.}
+\ressubitem{Implemented source control for all software maintained by company in addition to creating an entire set of QA procedures in order to address product quality issues.}
+\end{ressubsec}
+
+\begin{ressubsec}{Clark Solutions}{Hudson, MA \hfill 2009-2012}
+{Technician}
+\ressubitem{Assisted in the design process to build and test new ultrasonic flow meters.}
+\ressubitem{Built, tested, and repaired ultrasonic flowmeters.}
+\ressubitem{Made software fixes to flowmeter codebase and supporting programs.}
+%\ressubitem{Did minor IT work including virus removal, database migration from oracle to mssql, creation of norton ghost images.}
+
+\end{ressubsec}
+
+
+\end{ressection}
+
+\begin{ressection}{Academic Experience}
+
+\begin{reslist}{Capstone Project}
+\ressubitem{In the process of creating a puzzle game to teach children the basics of logic design and CMOS using physical interconnectable blocks.}
+\end{reslist}
+
+\begin{reslist}{Real Time Embedded Operating Systems}
+\ressubitem{Used the Micrum microC/OS-III RTOS on the STM32F107 microcontroller to implement a command and control system for networked robots.}
+\end{reslist}
+
+\begin{reslist}{Microprocessors II}
+\ressubitem{Project leader to use a PIC microcontroller to record timestamped light intensity measurements and report it to a webserver using a custom linux kernel driver.}
+\end{reslist}
+
+\begin{reslist}{Embedded Control}
+\ressubitem{Worked with a group to design, build, and program a blimp for autonomous operation}
+\end{reslist}
+
+\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ressection}{Education}
+
+	
+\begin{ressubsecdegrees}{University of Massachusetts Lowell}{Lowell, MA \hfill Expected Graduation: December 2014}{B.S. in Computer Engineering}{\hfill GPA: 3.5}
+\end{ressubsecdegrees}		
+	
+\begin{ressubsecdegrees}{Rensselaer Polytechnic Institute}{Troy, NY \hfill 2006-2008}{Enrolled in Computer Engineering}{}
+			%\ressubitem{Minor in Mathematics}
+			%\ressubitem{GPA: 3.46}
+		\end{ressubsecdegrees}		
+
+\end{ressection}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Skills}
+	\resitem{\textbf{Programming Languages:} C, C++, Python, LISP, SQL, MIPS, x86, PIC16, MSP430l}
+	\resitem{\textbf{Operating Systems:} Microsoft Windows, Linux (Arch, Slax), OS X}
+	\resitem{\textbf{Tools:} vim, git, mercurial, svn, MATLAB, SolidWorks, Multisim, Django, MPLAB, Labview, Eagle PCB}
+	\resitem{\textbf{Office Software:} Microsoft Office, OpenOffice, \LaTeX}
+	%\resitem{\textbf{General Software:} Microsoft Windows, Linux, Microsoft Office, OpenOffice, \LaTeX}
+	%\resitem{\textbf{Numerical Simulation:} FORTRAN, MATLAB}
+	%\resitem{\textbf{Lab Equipment:} Gilbert Technologies Furnace, Cobilt CA-400 Photomask Aligner, Sputtered Films S-Gun Sputtering System, Probe Station}
+\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ressection}{Activities}
+	
+\ressubitem{Eagle Scout}
+
+\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
